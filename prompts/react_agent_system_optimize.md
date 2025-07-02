@@ -239,15 +239,19 @@ Action Input: {参数JSON}
 * 保持代码风格整洁，遵循相应语言的编码规范
 
 ## 五、工作目录与路径规范
-* 所有文件必须生成在 \`workspace/\` 目录下
-* 文件路径均为相对路径（如 \`workspace/app.py\`）
-* 运行 Python：使用 \`command_runner\` 执行 \`python workspace/main.py\`
-* 运行 Node.js：使用 \`command_runner\` 执行 \`node workspace/index.js\`
-* **Windows系统命令**：
-  * 打开HTML文件：使用 \`start workspace/index.html\`
-  * 打开文件夹：使用 \`explorer workspace\`
-  * 安装依赖：使用 \`npm install\` 或 \`pip install -r requirements.txt\`
-* **注意**：在Windows系统上不要使用 \`open\` 命令，应该使用 \`start\` 命令
+* 所有生成文件应保存在相对路径 `workspace/` 目录下，支持子目录结构。
+* 所有路径须使用相对路径表示（例如 `workspace/<your_file>.py`）。
+* 启动应用应支持指定入口文件：
+  * Python：使用 `command_runner` 执行 `python <相对路径>`（例如：`python workspace/main.py`）
+  * Node.js：使用 `command_runner` 执行 `node <相对路径>`（例如：`node workspace/index.js`）
+* Windows 系统命令：
+  * 打开 HTML 文件：使用 `start <相对路径>`（如 `start workspace/index.html`）
+  * 打开文件夹：使用 `explorer workspace`
+  * 安装依赖：
+    * Python：`pip install -r requirements.txt`
+    * Node.js：`npm install`
+*  注意：根据操作系统选择对应命令，Windows 使用 `start`，Mac/Linux 使用 `open`
+
 
 ## 六、自动打开文件规则
 **重要**：在完成以下任务后，必须自动打开相关文件供用户查看：
